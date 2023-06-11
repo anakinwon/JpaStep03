@@ -1,0 +1,24 @@
+spring:
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+
+  datasource:
+    url: jdbc:h2:tcp://localhost/~/jpashop
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+
+  jpa:
+#    open-in-view: false   # OSIV종료 (Off Session In View) : 커넥션 풀 부족현상 해결
+    hibernate:
+      ddl-auto: create  #update #none
+    properties:
+      hibernate:
+        #        show_sql: true
+        format_sql: true
+        default_batch_fetch_size: 1000  # 성능최적화를 위한 페이지 옵션
+
+logging.level:
+  org.hibernate.SQL: debug
+  org.hibernate.type: trace   # 쿼리 파라미터 로그 남기기
